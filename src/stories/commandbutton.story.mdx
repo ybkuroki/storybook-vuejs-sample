@@ -1,0 +1,49 @@
+import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
+import CommandButton from '../components/commandbutton.vue';
+
+<Meta title="Docs" Component={CommandButton} />
+
+# CommandButton
+
+With `MDX` we can define a story for `CommandButton` right in the middle of our
+markdown documentation.
+
+## Primary Style
+
+<Story name="primary" height="60px">
+  {{
+    components: { CommandButton },
+    template: '<CommandButton name="primary" className="primary" :useDiv="false" :isLoading="false" />',
+  }}
+</Story>
+
+## Secondary Style
+
+<Story name="secondary" height="60px">
+  {{
+    components: { CommandButton },
+    template: '<CommandButton name="secondary" className="secondary" :useDiv="false" :isLoading="false" />',
+  }}
+</Story>
+
+## Positive Style
+
+<Story name="positive" height="60px">
+  {{
+    components: { CommandButton },
+    template: '<CommandButton name="positive" className="positive" :useDiv="false" :isLoading="false" />',
+  }}
+</Story>
+
+## Negative Style
+
+<Story name="negative" height="60px">
+  {{
+    components: { CommandButton },
+    template: '<CommandButton name="negative" className="negative" :useDiv="false" :isLoading="false" />',
+  }}
+</Story>
+
+## Story Docs
+
+<Story id="commandbutton--normal" height="60px" />
