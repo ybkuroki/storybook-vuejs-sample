@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import {
@@ -7,26 +6,29 @@ import {
   boolean
 } from '@storybook/addon-knobs';
 
-import NavBar from '../components/navbar.vue'
+import NavBar from '../../components/navbar.vue'
 
 import 'semantic-ui-css/semantic.min.css';
 
-storiesOf('NavBar', module)
-	.addDecorator(withKnobs)
-	.add('normal', () => ({
-		props: {
-			title: {
-				type: String,
-				default: text('Title', 'タイトル')
-			},
-			isToggle: {
-				type: Boolean,
-				default: boolean('isToggle', true)
-			}
+export default {
+	title: 'NavBar',
+	decorators: [withKnobs]
+}
+
+export const Normal = () => ({
+	props: {
+		title: {
+			type: String,
+			default: text('Title', 'タイトル')
 		},
-		components: { NavBar },
-    template: 
-`<NavBar :title="title" :isToggle="isToggle">
+		isToggle: {
+			type: Boolean,
+			default: boolean('isToggle', true)
+		}
+	},
+	components: { NavBar },
+	template:
+		`<NavBar :title="title" :isToggle="isToggle">
 			<template slot="content">
 				<a class="item" @click="action">リンク1</a>
 				<a class="item" @click="action">リンク2</a>
@@ -44,8 +46,12 @@ storiesOf('NavBar', module)
 				<a class="item" @click="action">リンク2</a>
 				<a class="item" @click="action">リンク3</a>
 			</template>
-</NavBar>`,
-		methods: {
-				action: action('link-clicked')
-		},
-	}));
+		</NavBar>`,
+	methods: {
+		action: action('link-clicked')
+	},
+})
+
+Normal.story = {
+	name: 'Normal'
+}

@@ -1,13 +1,19 @@
-import { Story, Preview, Meta } from '@storybook/addon-docs/blocks';
-import CommandButton from '../components/commandbutton.vue';
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks'
+import CommandButton from '../../components/commandbutton.vue'
 
-<Meta title="Docs" Component={CommandButton} />
+<Meta title="CommandButton/Docs" Component={CommandButton} />
 
 # CommandButton
 
-With `MDX` we can define a story for `CommandButton` right in the middle of our
-markdown documentation.
+<Preview>
+  <Story id="commandbutton--normal" height="60px" />
+</Preview>
 
+# Props
+
+<Props of={CommandButton} />
+
+# Styles
 ## Primary Style
 
 <Story name="primary" height="60px">
@@ -44,6 +50,3 @@ markdown documentation.
   }}
 </Story>
 
-## Story Docs
-
-<Story id="commandbutton--normal" height="60px" />

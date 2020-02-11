@@ -44,9 +44,9 @@ The follwing figure is the map of this sample project.
 ```
 - storybook_sample
   - .storybook            Contains configurations of StoryBook.
-    - addon.js            Define the add-on settings.
-    - config.js           Define the path of .story files.
-    - presets.js          Define configurations for MDX.
+    - main.js            Define the add-on settings.
+    - manager.js           Define the path of .story files.
+    - preview.js          Define configurations for MDX.
   + public
   - src
     + components          Define components of Vue.js.
@@ -80,11 +80,11 @@ This sample uses the following library.
 
 |Library Name|Version|
 |:---|:---:|
-|Storybook for Vue|5.2.1|
-|Addon Actions|5.2.1|
-|Addon Knobs|5.2.1|
-|Addon Viewport|5.2.1|
-|Addon Vue Info|1.3.0|
+|Storybook for Vue|5.3.9|
+|Addon Actions|5.3.9|
+|Addon Knobs|5.3.9|
+|Addon Viewport|5.3.9|
+|Addon Docs|5.3.9|
 |semantic-ui-css|2.4.1|
 
 ## License

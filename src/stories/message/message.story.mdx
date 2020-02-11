@@ -1,0 +1,42 @@
+import { Story, Preview, Meta, Props } from '@storybook/addon-docs/blocks'
+import Message from '../../components/message.vue'
+
+<Meta title="Message/Docs" Component={Message} />
+
+# Message
+
+<Preview>
+  <Story id="message--normal" height="60px" />
+</Preview>
+
+# Props
+
+<Props of={Message} />
+
+# Types
+## Info
+
+<Story name="info" height="60px">
+  {{
+    components: { Message },
+    template: '<Message messageType="info" messages="I" />',
+  }}
+</Story>
+
+## Positive
+
+<Story name="positive" height="60px">
+  {{
+    components: { Message },
+    template: '<Message messageType="positive" messages="P" />',
+  }}
+</Story>
+
+## Error
+
+<Story name="error" height="60px">
+  {{
+    components: { Message },
+    template: '<Message messageType="error" messages="E" />',
+  }}
+</Story>
