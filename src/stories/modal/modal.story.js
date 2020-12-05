@@ -1,28 +1,20 @@
 import { action } from '@storybook/addon-actions'
-import {
-  withKnobs,
-  text
-} from '@storybook/addon-knobs';
 
 import Modal from '../../components/modal.vue'
 import CommandButton from '../../components/commandbutton.vue'
 
 export default {
   title: 'Modal',
-  decorators: [withKnobs]
+  component: Modal,
+  argTypes: {
+    header: { control: 'text' },
+    content: { control: 'text' },
+    showModal: { control: 'boolean'},
+  },
 }
 
-export const Default = () => ({
-  props: {
-    header: {
-      type: String,
-      default: text('Header', 'モーダルヘッダー')
-    },
-    content: {
-      type: String,
-      default: text('Content', 'モーダルコンテンツ')
-    }
-  },
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components: { Modal, CommandButton },
   template:
     `<Modal v-model="showModal">
@@ -37,15 +29,16 @@ export const Default = () => ({
         <CommandButton name="OK" className="primary right" :useDiv="true" @click="clickOk" />
       </template>
     </Modal>`,
-  data() {
-    return { showModal: true }
-  },
   methods: {
     clickCancel: action('click Cancel Button'),
     clickOk: action('click Ok Button')
-  }
-})
+  },
+});
 
-Default.story = {
-  name: 'Default'
-}
+export const Default = Template.bind({});
+Default.args = {
+  header: 'モーダルヘッダー',
+  content: 'モーダルコンテンツ',
+  showModal: true,
+};
+

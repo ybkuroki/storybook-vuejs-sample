@@ -1,39 +1,34 @@
-import {
-  withKnobs,
-  text,
-  boolean
-} from '@storybook/addon-knobs'
-
 import InputBox from '../../components/inputbox.vue'
 
 import 'semantic-ui-css/semantic.min.css'
 
+const templateDecorator = () => ({
+  template: `
+<div class="ui form"><story/></div>
+	`,
+});
+
 export default {
   title: 'InputBox',
-  decorators: [withKnobs]
+  component: InputBox,
+  argTypes: {
+    title: { control: 'text' },
+    isValide: {control: 'boolean'}
+  },
+  decorators: [templateDecorator],
 }
 
-export const Title = () => ({
-  props: {
-    title: {
-      type: String,
-      default: text('Title', 'タイトル')
-    },
-    valide: {
-      type: Boolean,
-      default: boolean('Validation', false)
-    }
-  },
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components: { InputBox },
-  template: 
-    `<div class="ui form">
-      <InputBox v-model="text" :title="title" :isValide="valide" />
-    </div>`,
+  template: `<InputBox v-model="text" :title="title" :isValide="isValide" />`,
   data() {
     return { text: '', name: 'InputBox' }
   }
-})
+});
 
-Title.story = {
-  name: 'with Title'
-}
+export const Title = Template.bind({});
+Title.args = {
+  title: 'タイトル',
+  isValide: false,
+};

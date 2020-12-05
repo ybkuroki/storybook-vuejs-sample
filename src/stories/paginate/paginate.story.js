@@ -1,8 +1,4 @@
 import { action } from '@storybook/addon-actions'
-import {
-  withKnobs,
-  number
-} from '@storybook/addon-knobs'
 
 import Pagination from '../../components/paginate.vue'
 
@@ -10,16 +6,16 @@ import 'semantic-ui-css/semantic.min.css'
 
 export default {
   title: 'Pagination',
-  decorators: [withKnobs]
+  component: Pagination,
+  argTypes: {
+    pageCount: {
+      control: { type: 'range', min: 1, max: 20, step: 1 },
+    }
+  }
 }
 
-export const Normal = () => ({
-  props: {
-    pageCount: {
-      type: Number,
-      default: number('PageCount', 5)
-    }
-  },
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components: { Pagination },
   template:
     `<Pagination ref="pagination"
@@ -36,8 +32,9 @@ export const Normal = () => ({
   methods: {
     action: action('button-clicked')
   }
-})
+});
 
-Normal.story = {
-  name: 'Normal'
-}
+export const Normal = Template.bind({});
+Normal.args = {
+  pageCount: 5,
+};

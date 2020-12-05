@@ -1,35 +1,31 @@
-import {
-  withKnobs,
-  text
-} from '@storybook/addon-knobs'
-
 import LabelGroup from '../../components/labelgroup.vue'
 
 import 'semantic-ui-css/semantic.min.css'
 
+const templateDecorator = () => ({
+  template: `
+<div class="ui form"><story/></div>
+	`,
+});
+
 export default {
   title: 'LabelGroup',
-  decorators: [withKnobs]
-}
-
-export const Title = () => ({
-  props: {
-    title: {
-      type: String,
-      default: text('Title', 'タイトル')
-    },
-    name: {
-      type: String,
-      default: text('Name', 'データ')
-    }
+  component: LabelGroup,
+  argTypes: {
+    title: { control: 'text' },
+    name: {control: 'text'}
   },
-  components: { LabelGroup },
-  template:
-    `<div class="ui form">
-      <LabelGroup :title="title" :name="name" />
-    </div>`
-})
-
-Title.story = {
-  name: 'with Title'
+  decorators: [templateDecorator],
 }
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { LabelGroup },
+  template: `<LabelGroup :title="title" :name="name" />`,
+});
+
+export const Title = Template.bind({});
+Title.args = {
+  title: 'タイトル',
+  name: 'データ',
+};
