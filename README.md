@@ -82,7 +82,7 @@ This sample uses the following library.
 |:---|:---:|
 |Storybook for Vue|6.1.8|
 |Addon Actions|6.1.8|
-|Addon Knobs|6.1.8|
+|Addon Controls|6.1.8|
 |Addon Viewport|6.1.8|
 |Addon Docs|6.1.8|
 |semantic-ui-css|2.4.1|
