@@ -1,31 +1,20 @@
 import { action } from '@storybook/addon-actions'
 
-import {
-  withKnobs,
-  text,
-  boolean
-} from '@storybook/addon-knobs';
-
 import NavBar from '../../components/navbar.vue'
 
 import 'semantic-ui-css/semantic.min.css';
 
 export default {
 	title: 'NavBar',
-	decorators: [withKnobs]
+	component: NavBar,
+	argTypes: {
+		title: { control: 'text' },
+		isToggle: {control: 'boolean'},
+	},
 }
 
-export const Normal = () => ({
-	props: {
-		title: {
-			type: String,
-			default: text('Title', 'タイトル')
-		},
-		isToggle: {
-			type: Boolean,
-			default: boolean('isToggle', true)
-		}
-	},
+const Template = (args, { argTypes }) => ({
+	props: Object.keys(argTypes),
 	components: { NavBar },
 	template:
 		`<NavBar :title="title" :isToggle="isToggle">
@@ -50,8 +39,10 @@ export const Normal = () => ({
 	methods: {
 		action: action('link-clicked')
 	},
-})
+});
 
-Normal.story = {
-	name: 'Normal'
-}
+export const Normal = Template.bind({});
+Normal.args = {
+	title: 'タイトル',
+	isToggle: true,
+};
