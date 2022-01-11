@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-controls',
     '@storybook/addon-storysource',
     '@storybook/addon-actions',
+    '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-viewport',
     '@storybook/addon-backgrounds',
@@ -14,4 +15,5 @@ module.exports = {
   core: {
     builder: 'webpack4',
   },
+  staticDirs: ['../public'],
 };

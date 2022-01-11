@@ -80,11 +80,11 @@ This sample uses the following library.
 
 |Library Name|Version|
 |:---|:---:|
-|Storybook for Vue|6.3.12|
-|Addon Actions|6.3.12|
-|Addon Controls|6.3.12|
-|Addon Viewport|6.3.12|
-|Addon Docs|6.3.12|
+|Storybook for Vue|6.4.10|
+|Addon Actions|6.4.10|
+|Addon Controls|6.4.10|
+|Addon Viewport|6.4.10|
+|Addon Docs|6.4.10|
 |semantic-ui-css|2.4.1|
 
 ## License
